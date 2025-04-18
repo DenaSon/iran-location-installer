@@ -1,0 +1,25 @@
+name: Install Iran Location Package
+
+on:
+  schedule:
+    - cron: "*/30 * * * *" # اجرا هر 30 دقیقه
+  workflow_dispatch: # اجرا با دکمه دستی
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Create Laravel project and install iran-location
+        run: |
+          composer create-project laravel/laravel test-app
+          cd test-app
+          composer require denason/iran-location
