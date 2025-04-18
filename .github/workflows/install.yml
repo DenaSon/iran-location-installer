@@ -2,8 +2,8 @@ name: Install Iran Location Package
 
 on:
   schedule:
-    - cron: "*/1 * * * *" # اجرا هر 30 دقیقه
-  workflow_dispatch: # اجرا با دکمه دستی
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
 
 jobs:
   install:
@@ -23,3 +23,7 @@ jobs:
           composer create-project laravel/laravel test-app
           cd test-app
           composer require denason/iran-location
+          php artisan config:clear
+          php artisan cache:clear
+          php artisan config:cache
+          composer dump-autoload
