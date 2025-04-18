@@ -2,7 +2,7 @@ name: Install Iran Location Package
 
 on:
   schedule:
-    - cron: "*/30 * * * *" # اجرا هر 30 دقیقه
+    - cron: "*/3 * * * *" # اجرا هر 30 دقیقه
   workflow_dispatch: # اجرا با دکمه دستی
 
 jobs:
