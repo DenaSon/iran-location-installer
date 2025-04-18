@@ -20,10 +20,19 @@ jobs:
 
       - name: Create Laravel project and install iran-location
         run: |
-          composer create-project laravel/laravel test-app
+          # ساخت پروژه لاراول
+          composer create-project laravel/laravel test-app --prefer-dist
+          
+          # وارد دایرکتوری پروژه
           cd test-app
+          
+          # نصب پکیج ایران-لوکیشن
           composer require denason/iran-location
+          
+          # اجرای دستورات مربوط به Artisan
           php artisan config:clear
           php artisan cache:clear
           php artisan config:cache
+          
+          # تولید autoload به‌روزرسانی شده
           composer dump-autoload
